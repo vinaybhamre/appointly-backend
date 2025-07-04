@@ -15,8 +15,8 @@ export const getDatabaseConfig = () => {
     synchronize: !isProduction,
     logging: isProduction ? false : ["error"],
     ssl: isProduction
-      ? { rejectUnauthorized: true }
-      : { rejectUnauthorized: false },
+      ? { rejectUnauthorized: false } // allow SSL for Supabase on Render
+      : false, // no SSL locally
   });
 };
 
